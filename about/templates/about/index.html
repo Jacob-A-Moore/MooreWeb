@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MooreWeb</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body class="bg-blue-100">
+
+<!-- Top of Page Banner -->
+<div class="bg-blue-300 text-white  flex items-center rounded-l-full">
+    <div class="flex items-center">
+        {% if bio.image %}
+            <img src="{{ bio.image.url }}" alt="Profile Image" class="sm:w-36 sm:h-36 w-52 h-52 rounded-full  mr-6">
+        {% endif %}
+    </div>
+	<div class="flex-col">
+		<h1 class="pl-3 sm:text-3xl md:text-5xl lg:text-6xl font-bold">Welcome to Moore Web!</h1>
+		<nav class="mt-5">
+			<ul class="flex  pl-3 space-x-4">
+				<li><a href="{% url 'home' %}" class="sm:text-1xl md:text-2xl lg:text-3xl text-blue-500 hover:text-blue-700">Home</a></li>
+				<li><a href="{% url 'contact' %}" class="sm:text-1xl md:text-2xl lg:text-3xl text-blue-500 hover:text-blue-700">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<!-- Social Media Icons -->
+	<ul class="flex items-center space-x-4 ml-5 p-1">
+	<!-- LinkedIn -->
+		<li>
+			<a href="http://linkedin.com/in/j-a-moore-dev" class="text-gray-600 hover:text-blue-500">
+				<img src="{% static 'images/linkedin2.png' %}" alt="LinkedIn" class="h-8 w-8"/>   
+			</a>
+		</li>
+	<!-- Github -->
+		<li>
+			<a href="https://github.com/Jacob-A-Moore" class="text-gray-600 hover:text-blue-500">
+				<img src="{% static 'images/github3.png' %}" alt="Github" class="h-9 w-9"/>   
+			</a>
+		</li>
+	<!-- Resume Download -->
+		<li>
+			<a href="{% static 'files/Resume_JMoore.pdf' %}" download>
+				<img src="{% static 'images/resumeimg.png' %}" alt="Download Resume" class="h-9 w-9"/>
+			</a>
+		</li>
+	</ul>
+	
+<!--  success message -->
+	<div class="ml-5 p-1">
+		{% if messages %}
+			<div class="alert alert-success">
+				{% for message in messages %}
+					{{ message }}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+<!-- Bio Section -->
+<section class="sm:p-0 p-4 bg-blue-200 flex flex-col"> 
+        <h2 class="text-2xl lg:text-3xl text-blue-700 mt-5 ml-8">About Me</h2>
+        <p class="indent-6 p-2"> 
+            I am a driven technology professional with a deep passion for learning and continuously 
+			expanding my skillset. Since 2021, I’ve immersed myself in popular programming languages like 
+			C# and Python, alongside mastering frameworks such as .NET, ASP.NET, Django, and Tailwind CSS. 
+			My journey into software engineering began with a lifelong love for video games, sparking my 
+			curiosity in how technology works. Even though my focus is not video game development, this 
+			passion fuels my commitment to staying current with new technologies and honing my craft to 
+			build innovative solutions. 
+        </p>
+	<div class="flex ">
+		{% load static %}
+		<img src="{% static 'images/Circuit.png' %}" class="w-32 h-32 lg:w-34 lg:h-34 mr-2" alt="Binary Logic Illustration">
+        <p class="indent-6">
+            My introduction to working with computers began with my initial introduction to circuitry and binary logic through
+			the Tennessee College of Applied Technology certification program in Industrial Electricity. 
+			This program taught me the basics of circuitry, like Voltage, Resistance and Amperage as well
+			as Impedence and Reactance. Upon mastering these basic concepts I was introduced to  control 
+			logic wiring which exposed me to the concept of combinational logic. The intricacies of PLC's 
+			and the circuitry involved in wiring input and outputs to perform specific tasks in a 
+			particular order led me into doing research into Computer Science. 
+        </p>
+	</div>
+	<div class="flex">
+        <p class="indent-6 p-2 lg:p-4">
+            Once I zeroed in on Software Development within the vast IT universe, I enrolled in Chattanooga State’s AAS
+			program in Computer Programming, and my journey into the world of coding truly began. From my 
+			first “Hello World!” in Java and C#, I was hooked. That curiosity soon evolved into building a 
+			full-scale library management system with a team. My education not only sharpened my technical 
+			abilities but also taught me how to thrive in team environments. Today, I continue honing my 
+			skills, both in programming and in working as part of a team—because coding is rarely a solo 
+			sport.
+        </p>
+		<img src="{%static 'images/studymanCS2.png' %}" class="w-32 h-32 md:w-34 md:h-34 p-4 lg:p-2 lg:w-36 lg:h-36" alt="study man">
+	</div>
+    
+</section>
+
+
+
+    <!-- Education Section -->
+    <section class="p-4">
+		{% load static %}
+        <h2 class="flex items-center text-2xl text-blue-700">
+		Education
+		<img src="{% static 'images/gradcap2.png' %}" alt="edu-icon" class=" ml-2 h-8 w-8">
+		</h2>
+        <ul>
+            {% for edu in education %}
+                <li><span class="text-blue-500"> College: </span> {{ edu.college_name }}</li>
+				<li><span class="text-blue-500"> Degree: </span>{{ edu.degree }}</li>
+				<li><span class="text-blue-500"> Duration: </span> {{ edu.length_of_study }}</li>
+				<li><span class="text-blue-500"> Reflection: </span> {{ edu.reflection }} </li>
+            {% empty %}
+                <li>No education records found.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="bg-blue-200 p-4">
+		{% load static %}
+        <h2 class="flex items-center text-2xl text-blue-700">
+		Experience
+		<img src="{% static 'images/workxp.png' %}" alt="xp-icon" class=" ml-2 h-6 w-6">
+		</h2>
+        <ul>
+            {% for exp in experience %}
+                <li><span class="text-blue-500"> Employer: </span> {{ exp.employer }}</li>
+				<li><span class="text-blue-500"> Location: </span> {{ exp.location}}</li>
+				<li><span class="text-blue-500"> Title: </span> {{ exp.job_title}}</li>
+				<li><span class="text-blue-500"> Duration: </span> {{ exp.start_date}} - {{exp.end_date}}</li>
+				<li><span class="text-blue-500"> Responsibilities: </span> {{ exp.responsibilities}}</li>
+				
+            {% empty %}
+                <li>No experience records found.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="p-4">
+	    {% load static %}
+        <h2 class="flex items-center text-2xl text-blue-700">
+		Skills
+		<img src="{% static 'images/skills2.png' %}" alt="skills-icon" class="ml-2 h-6 w-6">
+		</h2>
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto max-h-64">
+			{% for skill in skills %}
+				<div class="bg-blue-300 p-2 rounded">
+					{{skill.name}}
+				</div>
+				
+			{% empty %}
+				<div> No skills listed. </div>
+			{% endfor %}
+			<p> And Still Growing...</p>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section class="p-4">
+        <h2 class="text-2xl text-blue-700">Hobbies</h2>
+        <ul>
+            {% for hobby in hobbies %}
+                <li>{{ hobby }}</li>
+            {% empty %}
+                <li>No hobbies listed.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Interests Section -->
+    <section class="p-4">
+        <h2 class="text-2xl text-blue-700">Interests</h2>
+        <ul>
+            {% for interest in interests %}
+                <li>{{ interest }}</li>
+            {% empty %}
+                <li>No interests listed.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
+
+
+
+
+

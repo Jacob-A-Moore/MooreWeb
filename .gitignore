@@ -1,0 +1,58 @@
+# Python
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+.eggs/
+
+# Virtual environments
+env/
+venv/
+ENV/
+VENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# If you're using Django migrations
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Pytest cache
+.pytest_cache/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Heroku
+*.env
+Procfile
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# Unit test / cov
+
+
+node_modules/
+
+
+Moore_Web.sqlite3
+
+
+dataDump.json
+

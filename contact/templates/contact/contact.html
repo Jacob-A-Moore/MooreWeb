@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>Contact Me</title>
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body class=" flex items-center justify-center min-h-screen bg-blue-300">
+
+	<div class="bg-white shadow-lg rounded p-8">
+		<div class="flex flex-row">
+			<h1 class="text-3xl mb-4 text-blue-500">Contact Me</h1>
+			<img src="{% static 'images/email.png'%}" alt="Email Icon" class="mb-4 ml-auto w-16 h-16">
+		</div>
+		<form method="post">
+			{% csrf_token %}
+			<div class="mb-4">
+			{{ form.name }}
+			</div>
+			<div class="mb-4">
+			{{ form.email }}
+			</div>
+			<div class="mb-4">
+			{{ form.message }}
+			</div>
+			<!-- Send button and Thanks message -->
+			<div class="flex items-center justify-between">
+			<button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Send</button>
+			<span class="text-blue-500 ml-4"> Thanks for reaching out!</span>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
