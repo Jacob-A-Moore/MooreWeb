@@ -83,22 +83,28 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if settings.DEBUG:
-    DATABASES = {
-    
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-    }
-    
-}
-else:
-    DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost')
-}
 
+# if settings.DEBUG:
+#     DATABASES = {
+    
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASSWORD'),
+#     }
+    
+# }
+# else:
+#     DATABASES = {
+#     'default': dj_database_url.config(default='postgres://localhost')
+# }
+
+DATABASES = {
+     'default': dj_database_url.config(default='postgres://localhost')
+ }
+
+ 
 #email backend settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'##FOR DEVELOPMENT TESTING ONLY
 
