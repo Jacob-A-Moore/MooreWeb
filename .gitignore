@@ -40,7 +40,7 @@ staticfiles/
 
 # Heroku
 *.env
-Procfile
+
 
 # Byte-compiled / optimized / DLL files
 *.py[cod]
