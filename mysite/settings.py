@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -104,7 +105,7 @@ DATABASES = {
      'default': dj_database_url.config(default='postgres://localhost')
  }
 
- 
+
 #email backend settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'##FOR DEVELOPMENT TESTING ONLY
 
