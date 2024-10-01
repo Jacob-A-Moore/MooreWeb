@@ -83,7 +83,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+if settings.DEBUG:
+    DATABASES = {
     
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -92,6 +93,10 @@ DATABASES = {
         'PASSWORD': os.getenv('DB_PASSWORD'),
     }
     
+}
+else:
+    DATABASES = {
+    'default': dj_database_url.config(default='postgres://localhost')
 }
 
 #email backend settings
