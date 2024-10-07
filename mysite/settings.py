@@ -82,7 +82,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
 if settings.DEBUG:
     DATABASES = {
         'default': {
@@ -92,8 +91,9 @@ if settings.DEBUG:
     }
 
 else:
-    
-
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    }
 
 # email backend settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  ##FOR DEVELOPMENT TESTING ONLY
