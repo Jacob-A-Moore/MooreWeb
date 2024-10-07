@@ -91,7 +91,7 @@ if DEBUG:
         }
     }
 
-if not DEBUG:
+if DEBUG is False:
     DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost')
     }
