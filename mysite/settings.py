@@ -27,7 +27,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = ["mooreweb-5ba9299f69d9.herokuapp.com"]
 
@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-'''
-if settings.DEBUG:
+
+if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -91,8 +91,7 @@ if settings.DEBUG:
     }
 
 else:
-    '''
-DATABASES = {
+    DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost')
     }
 
