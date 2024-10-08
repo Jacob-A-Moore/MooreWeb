@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-'''
-if DEBUG:
+
+if DEBUG == "True":
     print(f'DEBUG MODE: {DEBUG}')
     DATABASES = {
         'default': {
@@ -91,9 +91,8 @@ if DEBUG:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-'''
-
-DATABASES = {
+else:
+    DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost')
 }
 
