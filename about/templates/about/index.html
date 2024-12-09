@@ -115,7 +115,7 @@
 				<li><span class="text-blue-500"> Degree: </span>{{ edu.degree }}</li>
 				<li><span class="text-blue-500"> Duration: </span> {{ edu.length_of_study }}</li>
 				<li><span class="text-blue-500"> Reflection: </span> {{ edu.reflection }} </li>
-				<hr>
+				<br>
             {% empty %}
                 <li>No education records found.</li>
             {% endfor %}
@@ -136,7 +136,7 @@
 				<li><span class="text-blue-500"> Title: </span> {{ exp.job_title}}</li>
 				<li><span class="text-blue-500"> Duration: </span> {{ exp.start_date}} - {{exp.end_date}}</li>
 				<li><span class="text-blue-500"> Responsibilities: </span> {{ exp.responsibilities}}</li>
-				<hr>
+				<br>
             {% empty %}
                 <li>No experience records found.</li>
             {% endfor %}
@@ -169,7 +169,7 @@
         <ul>
             {% for hobby in hobbies %}
                 <li>{{ hobby }}</li>
-				<hr>
+				<br>
             {% empty %}
                 <li>No hobbies listed.</li>
             {% endfor %}
@@ -182,7 +182,7 @@
         <ul>
             {% for interest in interests %}
                 <li>{{ interest }}</li>
-				<hr>
+				<br>
             {% empty %}
                 <li>No interests listed.</li>
             {% endfor %}
